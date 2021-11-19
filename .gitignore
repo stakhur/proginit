@@ -1,1 +1,4 @@
 *.o
+pascal/data/*
+pascal/obj/*
+.vimrc
