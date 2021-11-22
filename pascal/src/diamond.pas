@@ -13,15 +13,14 @@ begin
 	begin
 		for col := 0 to size - 1 do
 		begin
-			if (row <= n) then
-			begin
+			if (row <= n) then begin
 				if ((col = n - row) or (col = n + row)) then
 					write('*')
 				else
 					write(' ')
 			end
 			else begin
-				if ((col = row - n) or (col = (size - row + n - 1))) then
+				if ((col = row - n) or (col = (3*n - row))) then
 					write('*')
 				else
 					write(' ')
