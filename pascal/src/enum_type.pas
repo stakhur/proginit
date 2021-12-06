@@ -5,7 +5,13 @@ var
 	day: WeekDays;
 
 begin
-	read(day);
+	{$I-}
+	while (true) do begin
+		write('Input day of week: ');
+		read(day);
+		if (IOResult = 0) then
+			break
+	end;
 
 	if (day < Sat) then begin
 		writeln('Work, work!');

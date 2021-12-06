@@ -49,3 +49,22 @@
 	begin
 		a[1][2] := 4;
 		a[1,2] := 4; {the same}
+
+# Type conversions
+	var
+		i, j: integer;
+		r: real;
+	begin
+		r := 15.75;
+		i := trunc(r); { = 15. remove afterpoint part }
+		j := round(r); { = 16. round to the nearest }
+
+# More type conversions
+	var
+		i: byte;
+		j: integer;
+	begin
+		i := 7;
+		j := integer(i);
+		
+# 
