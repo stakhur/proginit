@@ -86,3 +86,24 @@
 		s2 := s1 + 'world';
 		writeln(s2);
 
+# String functions
+	length(s); { return length of the string s }
+	SetLength(s, l); { set length of the string s to l. Cannot be more then while initialization (stirng[15]) }
+	LowerCase(s); 	{ make lower all alphabetic symbols }
+	UpCase(s);	{ make upper all alphabetic symbols }
+	copy(s, start, l);	{ return substring of string s from start pos with l length }
+	delete(s, start, l);	{ change string s by deleting l symbols from position start from string s }
+	insert(WHAT, WHERE, POS); { insert WHAT string to WHERE string to POS position }
+	pos(WHAT, WHERE);	{ search WHAT substring in WHERE string and return position (0 if not found) }
+	val(s, v, err_pos);	{ convert string s to value v (longint, integer, byte). If no error, err_pos=0; else - position }
+	str(formatted_val, s);	{ convert formatted_val to string s. Ex: str(12.5:9:3, s); s = '   12.500' }
+	s = BinStr(bin_val, size_of_result_string);
+	s = OctStr(bin_val, size_of_result_string);
+	s = HexStr(bin_val, size_of_result_string);
+
+# Command Line Arguments
+	./demo abra shwabra kadabra
+	ParamCount; { return count of arguments (in the above example - 3 }
+	ParamStr(n); { return n-string argument. ParamStr(0) = demo; ParamStr(2) = shwabra; }
+
+# 
