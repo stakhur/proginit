@@ -67,4 +67,22 @@
 		i := 7;
 		j := integer(i);
 		
-# 
+# Special symbols in strings
+	writeln('first'#10#9'second'#10#9#9'third');
+	writeln('first'^J^I'second'^J^I^I'third');
+	{the same output:
+		first
+			second
+				third
+	}
+	
+
+# String type
+	var
+		s1: stirng[15]; { string size is 15 + 1 }
+		s2: string;	{ string size is 255 + 1 (max size) }
+	begin
+		s1 := 'Hello, ';
+		s2 := s1 + 'world';
+		writeln(s2);
+
