@@ -106,4 +106,28 @@
 	ParamCount; { return count of arguments (in the above example - 3 }
 	ParamStr(n); { return n-string argument. ParamStr(0) = demo; ParamStr(2) = shwabra; }
 
-# 
+# case .. of
+	case <x> of
+		'a'..'z', 'A'..'Z':
+			writeln('A letter');
+		'0'..'9':
+			writeln('A digit');
+		#27:
+			writeln('The escape code');
+		#9, #10, #13:
+			writeln('a formatting code');
+		else:
+			writeln('something strange')
+	
+# Full-screen program
+	uses crt;
+
+	clrscr;		{ clear screen }
+		
+	GotoXY(x, y)	{ go to new position }
+	ScreenWidth, ScreenHeight;	{ global variables }
+
+	WhereX(), WhereY(); 	{ find current position of the cursor }
+
+	KeyPressed();	{ return true if the key has been pressed }
+	ReadKey();	{ return the code of the pressed key }
