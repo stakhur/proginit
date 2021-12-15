@@ -131,3 +131,31 @@
 
 	KeyPressed();	{ return true if the key has been pressed }
 	ReadKey();	{ return the code of the pressed key }
+
+# Color control
+	TextBackground(<BAC>); { Set background text color by BAC constants:
+				Black
+				Blue
+				Green
+				Cyan
+				Red
+				Magneta
+				Brown
+				LightGray
+				}
+	TextColor(<COL> [or Blink]); { Set [blinking] text color by COL constant:
+				All from BAC constant +
+				DarkGray
+				LightBlue
+				LightGreen
+				LightCyan
+				LightRed
+				LightMagneta
+				Yellow
+				White
+				}
+
+# Reset color changes
+	reset command in the terminal
+	or
+	write(#27'[0m');
