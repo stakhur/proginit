@@ -139,7 +139,7 @@
 				Green
 				Cyan
 				Red
-				Magneta
+				Magenta
 				Brown
 				LightGray
 				}
@@ -150,7 +150,7 @@
 				LightGreen
 				LightCyan
 				LightRed
-				LightMagneta
+				LightMagenta
 				Yellow
 				White
 				}
