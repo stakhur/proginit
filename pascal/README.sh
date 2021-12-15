@@ -159,3 +159,8 @@
 	reset command in the terminal
 	or
 	write(#27'[0m');
+
+# Pseudo-random numbers
+	randomize;	{ function that set randseed (called 1 time)}
+	random;		{ return random real number 0..1 (and change randseed) }
+	random(<MAX_LONGINT>);	{ return random longint number 0..MAX_LONGINT-1 (and change randseed) }
