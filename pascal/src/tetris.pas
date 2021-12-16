@@ -3,20 +3,29 @@ uses crt;
 const
 	Width = 20;
 	Height = 20;
-	NumberOfFigures = 7;
+	FigureHeight = 4; { 4x4 }
+	NumberOfFigures = 2;
 	NumberOfRotations = 4;
 
 type
-	Rotations = array [1..NumberOfRotations] of integer;
-	SetOfFigures = array [1..NumberOfFigures] of Rotations;
+	Figure = array [1..FigureHeight] of byte;
+	FigurePositions = array [1..NumberOfRotations] of Figure;
+	SetOfFigures = array [1..NumberOfFigures] of FigurePositions;
 
-var
-	figures: SetOfFigures;
-
-procedure InitFigures(var figures: SetOfFigures);
-begin
-end;
-
+const
+	Figures: SetOfFigures = (
+		( 		       	{ ++++ }
+		  (0, 0, 0, 15),       		{ + }
+		  (1, 1, 1, 1),	       		{ + }
+		  (0, 0, 0, 15),       		{ + }
+		  (1, 1, 1, 1)),       		{ + }
+		( 		       	{   + }		{ +++ }
+		  (0, 0, 4, 7),		{ +++ }		{ +   }
+		  (0, 3, 2, 2),			{ ++ }		{ +  }
+		  (0, 0, 7, 1),			{  + }		{ +  }
+		  (0, 1, 1, 3))		{  + }		{ ++ }
+		);
+	
 procedure PrintGlass;
 const
 	Color = LightGray;
@@ -70,7 +79,6 @@ end;
 
 begin
 	clrscr;
-	InitFigures(figures);
 	PrintGlass;
 	ShowNext(3);
 	while (not KeyPressed) do;
