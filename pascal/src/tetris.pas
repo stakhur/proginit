@@ -4,7 +4,7 @@ const
 	Width = 20;
 	Height = 20;
 	FigureHeight = 4; { 4x4 }
-	NumberOfFigures = 2;
+	NumberOfFigures = 4;
 	NumberOfRotations = 4;
 
 type
@@ -29,8 +29,18 @@ const
 		  (0, 0, 4, 7),		{ +++ }		{ +   }
 		  (0, 3, 2, 2),			{ ++ }		{ +  }
 		  (0, 0, 7, 1),			{  + }		{ +  }
-		  (0, 1, 1, 3))			{  + }		{ ++ }
-		);
+		  (0, 1, 1, 3)),		{  + }		{ ++ }
+		(			{ *   }		{ *** }
+		  (0, 0, 1, 7),		{ *** }		{   * }
+		  (0, 2, 2, 3),			{  * }		{ ** }
+		  (0, 0, 7, 4),			{  * }		{ *  }
+		  (0, 3, 1, 1)),		{ ** }		{ *  }
+		(
+		  (0, 0, 3, 3),		{ ** }
+		  (0, 0, 3, 3),		{ ** }
+		  (0, 0, 3, 3),
+		  (0, 0, 3, 3))
+		  );
 
 procedure Rotate(var figObj: FigureObject; rotateDir: RotateDirection);
 begin
