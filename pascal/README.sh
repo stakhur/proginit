@@ -164,3 +164,23 @@
 	randomize;	{ function that set randseed (called 1 time)}
 	random;		{ return random real number 0..1 (and change randseed) }
 	random(<MAX_LONGINT>);	{ return random longint number 0..MAX_LONGINT-1 (and change randseed) }
+
+# Files
+	{ Types of file: (text, file, file of <type>) }
+	assign(file_var, 'file_name');	{ link file_name with file_var }
+	reset { open file for reading. File must be exist }
+	rewrite { open/create file for writing. File data will be clear }
+	append { open file for writing to the end. Only in the text mode }
+	{ Apply {$I-} before using above functions. Process errors with IOResult }
+
+	write(f1, x); { write to the text file linked to f1 x data }
+	read(f1, x);  { read from, the text file linked to f1 to the x }
+	
+	eof(f1);
+	SeekEof(f1);
+
+	BlockRead(f1, xx);	{ read from the file, opened in the block mode }
+	BlockWrite(f1, xx);
+
+	close(f1);	{ close file f1 }
+
