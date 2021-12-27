@@ -4,9 +4,9 @@
 
 ## Lang
 # Error processing while reading
-	1. Activate error processing:
+	# 1. Activate error processing:
 	{$I-}
-	2. Check for the errors after reading:
+	# 2. Check for the errors after reading:
 	readln(n);
 	if (IOResult <> 0) then {error happened}
 
@@ -48,7 +48,7 @@
 
 	begin
 		a[1][2] := 4;
-		a[1,2] := 4; {the same}
+		a[1,2] := 4; # the same
 
 # Type conversions
 	var
@@ -56,8 +56,8 @@
 		r: real;
 	begin
 		r := 15.75;
-		i := trunc(r); { = 15. remove afterpoint part }
-		j := round(r); { = 16. round to the nearest }
+		i := trunc(r); # = 15. remove afterpoint part
+		j := round(r); # = 16. round to the nearest
 
 # More type conversions
 	var
@@ -70,41 +70,39 @@
 # Special symbols in strings
 	writeln('first'#10#9'second'#10#9#9'third');
 	writeln('first'^J^I'second'^J^I^I'third');
-	{the same output:
-		first
-			second
-				third
-	}
-	
+	# the same output:
+	#	first
+	#		second
+	#			third
 
 # String type
 	var
-		s1: stirng[15]; { string size is 15 + 1 }
-		s2: string;	{ string size is 255 + 1 (max size) }
+		s1: stirng[15]; # string size is 15 + 1
+		s2: string;	# string size is 255 + 1 (max size)
 	begin
 		s1 := 'Hello, ';
 		s2 := s1 + 'world';
 		writeln(s2);
 
 # String functions
-	length(s); { return length of the string s }
-	SetLength(s, l); { set length of the string s to l. Cannot be more then while initialization (stirng[15]) }
-	LowerCase(s); 	{ make lower all alphabetic symbols }
-	UpCase(s);	{ make upper all alphabetic symbols }
-	copy(s, start, l);	{ return substring of string s from start pos with l length }
-	delete(s, start, l);	{ change string s by deleting l symbols from position start from string s }
-	insert(WHAT, WHERE, POS); { insert WHAT string to WHERE string to POS position }
-	pos(WHAT, WHERE);	{ search WHAT substring in WHERE string and return position (0 if not found) }
-	val(s, v, err_pos);	{ convert string s to value v (longint, integer, byte). If no error, err_pos=0; else - position }
-	str(formatted_val, s);	{ convert formatted_val to string s. Ex: str(12.5:9:3, s); s = '   12.500' }
+	length(s); # return length of the string s
+	SetLength(s, l); # set length of the string s to l. Cannot be more then while initialization (stirng[15])
+	LowerCase(s); 	# make lower all alphabetic symbols
+	UpCase(s);	# make upper all alphabetic symbols
+	copy(s, start, l);	# return substring of string s from start pos with l length
+	delete(s, start, l);	# change string s by deleting l symbols from position start from string s
+	insert(WHAT, WHERE, POS); # insert WHAT string to WHERE string to POS position
+	pos(WHAT, WHERE);	# search WHAT substring in WHERE string and return position (0 if not found)
+	val(s, v, err_pos);	# convert string s to value v (longint, integer, byte). If no error, err_pos=0; else - position
+	str(formatted_val, s);	# convert formatted_val to string s. Ex: str(12.5:9:3, s); s = '   12.500'
 	s = BinStr(bin_val, size_of_result_string);
 	s = OctStr(bin_val, size_of_result_string);
 	s = HexStr(bin_val, size_of_result_string);
 
 # Command Line Arguments
 	./demo abra shwabra kadabra
-	ParamCount; { return count of arguments (in the above example - 3 }
-	ParamStr(n); { return n-string argument. ParamStr(0) = demo; ParamStr(2) = shwabra; }
+	ParamCount; # return count of arguments (in the above example - 3
+	ParamStr(n); # return n-string argument. ParamStr(0) = demo; ParamStr(2) = shwabra;
 
 # case .. of
 	case <x> of
@@ -122,38 +120,37 @@
 # Full-screen program
 	uses crt;
 
-	clrscr;		{ clear screen }
+	clrscr;		# clear screen
 		
-	GotoXY(x, y)	{ go to new position }
-	ScreenWidth, ScreenHeight;	{ global variables }
+	GotoXY(x, y)	# go to new position
+	ScreenWidth, ScreenHeight;	# global variables
 
-	WhereX(), WhereY(); 	{ find current position of the cursor }
+	WhereX(), WhereY(); 	# find current position of the cursor
 
-	KeyPressed();	{ return true if the key has been pressed }
-	ReadKey();	{ return the code of the pressed key }
+	KeyPressed();	# return true if the key has been pressed
+	ReadKey();	# return the code of the pressed key
 
 # Color control
-	TextBackground(<BAC>); { Set background text color by BAC constants:
-				Black
-				Blue
-				Green
-				Cyan
-				Red
-				Magenta
-				Brown
-				LightGray
-				}
-	TextColor(<COL> [or Blink]); { Set [blinking] text color by COL constant:
-				All from BAC constant +
-				DarkGray
-				LightBlue
-				LightGreen
-				LightCyan
-				LightRed
-				LightMagenta
-				Yellow
-				White
-				}
+	TextBackground(<BAC>); # Set background text color by BAC constants:
+				# Black
+				# Blue
+				# Green
+				# Cyan
+				# Red
+				# Magenta
+				# Brown
+				# LightGray
+				
+	TextColor(<COL> [or Blink]); # Set [blinking] text color by COL constant:
+				# All from BAC constant +
+				# DarkGray
+				# LightBlue
+				# LightGreen
+				# LightCyan
+				# LightRed
+				# LightMagenta
+				# Yellow
+				# White
 
 # Reset color changes
 	reset command in the terminal
@@ -161,26 +158,39 @@
 	write(#27'[0m');
 
 # Pseudo-random numbers
-	randomize;	{ function that set randseed (called 1 time)}
-	random;		{ return random real number 0..1 (and change randseed) }
-	random(<MAX_LONGINT>);	{ return random longint number 0..MAX_LONGINT-1 (and change randseed) }
+	randomize;	# function that set randseed (called 1 time)
+	random;		# return random real number 0..1 (and change randseed)
+	random(<MAX_LONGINT>);	# return random longint number 0..MAX_LONGINT-1 (and change randseed) 
 
-# Files
-	{ Types of file: (text, file, file of <type>) }
-	assign(file_var, 'file_name');	{ link file_name with file_var }
-	reset { open file for reading. File must be exist }
-	rewrite { open/create file for writing. File data will be clear }
-	append { open file for writing to the end. Only in the text mode }
-	{ Apply {$I-} before using above functions. Process errors with IOResult }
+## Files
+# General information
+	# Types of file: (text, file, file of <type>)
+	assign(file_var, 'file_name');	# link file_name with file_var 
+	reset # open file for reading. File must be exist 
+	rewrite # open/create file for writing. File data will be clear 
+	append # open file for writing to the end. Only in the text mode 
+	# Apply {$I-} before using above functions. Process errors with IOResult 
 
-	write(f1, x); { write to the text file linked to f1 x data }
-	read(f1, x);  { read from, the text file linked to f1 to the x }
+	write(f1, x); # write to the text file linked to f1 x data
+	read(f1, x);  # read from, the text file linked to f1 to the x
 	
 	eof(f1);
 	SeekEof(f1);
 
-	BlockRead(f1, xx);	{ read from the file, opened in the block mode }
+	BlockRead(f1, xx);	# read from the file, opened in the block mode
 	BlockWrite(f1, xx);
 
-	close(f1);	{ close file f1 }
+	close(f1);	# close file f1
+
+# Text files
+	var f: text;
+	
+	reset(f);	# open file in read-only mode
+	rewrite(f);	# open file in write-only mode. Remove file context
+	append(f);	# open file in write-only mode. Add data to the end. File must be exist
+
+	readln(f, x);
+	writeln(f, data);
+	eoln(f);
+
 
