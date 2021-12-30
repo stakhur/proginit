@@ -193,4 +193,16 @@
 	writeln(f, data);
 	eoln(f);
 
+# Typed files
+	var f: file of <type>;
 
+	seek(f, <rec_number>);	# set pointer after the <rec_number> record
+	reset(f);		# open file in r-w mode. if file does not exits - error
+	rewrite(f);		# open file in r-w mode. Remove file context (if file does not exist - create it)
+	filemode = n;		# set file mode (if we do not have enough rights).
+				# 2 (default) - open typed file for r-w
+				# 1 - open typed file for writing only
+				# 0 - open typed file for reading only
+
+# Block input-output
+	
