@@ -205,4 +205,13 @@
 				# 0 - open typed file for reading only
 
 # Block input-output
-	
+	var f: file;
+
+	reset(f, <block_size>);	 	# open file in r-w mode. if file does not exits - error
+	rewrite(f, <block_size>);	# open file in r-w mode. Remove file context (if file does not exist - create it)
+
+	BlockRead(f, var, <num_of_blocks>, readed_blocks);	# Read <num_of_blocks> blocks from file f to variable var.
+								# Actually readed num of blocks goes to readed_blocks
+								# If readed_blocks == 0 -> eof
+	BlockWrite(f, var, <num_of_blocks>, writed_blocks);
+
