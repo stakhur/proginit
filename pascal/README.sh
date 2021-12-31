@@ -215,3 +215,6 @@
 								# If readed_blocks == 0 -> eof
 	BlockWrite(f, var, <num_of_blocks>, writed_blocks);
 
+# Files operations
+	erase(f);	# remove file f from the disk. assign(f, <filename>); must be called before + file must be closed
+	rename(f, <new_filename>);	# rename file f with new file name new_filename
