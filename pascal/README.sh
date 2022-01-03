@@ -221,9 +221,12 @@
 
 ## Addresses, pointers, dynamic memory
 # Pointers
-	var
-		r: real;
-		p: ^real;	# Pointer to the real
-	begin
-		p := @r;	# Take an address of the 'r' variable and save it into 'p' variable
-		p^ := 23.4;	# dereference (разыменовывание == обращение по аресу)
+	r: real;
+	p: ^real;	# Pointer to the real
+	ap: pointer;	# non-typed pointer
+
+	p := @r;	# Take an address of the 'r' variable and save it into 'p' variable
+	p^ := 23.4;	# dereference (разыменовывание == обращение по аресу)
+	ap := nil;	# null-address - pointer not used at the moment
+
+	{$T+}		# use typed-conversion
