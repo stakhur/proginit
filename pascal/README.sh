@@ -218,3 +218,12 @@
 # Files operations
 	erase(f);	# remove file f from the disk. assign(f, <filename>); must be called before + file must be closed
 	rename(f, <new_filename>);	# rename file f with new file name new_filename
+
+## Addresses, pointers, dynamic memory
+# Pointers
+	var
+		r: real;
+		p: ^real;	# Pointer to the real
+	begin
+		p := @r;	# Take an address of the 'r' variable and save it into 'p' variable
+		p^ := 23.4;	# dereference (разыменовывание == обращение по аресу)
