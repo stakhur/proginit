@@ -230,3 +230,11 @@
 	ap := nil;	# null-address - pointer not used at the moment
 
 	{$T+}		# use typed-conversion
+
+
+	p: ^integer;
+	new(p);		# allocate memory for integer and put the address of this memory to p
+	dispose(p);	# free memory on address, stored in p variable
+
+# Linked list
+	
