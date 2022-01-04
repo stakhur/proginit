@@ -237,4 +237,9 @@
 	dispose(p);	# free memory on address, stored in p variable
 
 # Linked list
-	
+	type
+		itemptr = ^item;
+		item = record
+			data: <type>;
+			next: itemptr;
+		end;	
