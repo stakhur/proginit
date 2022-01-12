@@ -27,14 +27,12 @@ begin
 	tmp^.prev := nil;
 	tmp^.next := deque.first;
 
-	if (deque.first = nil) then begin
-		deque.first := tmp;
+	if (deque.first = nil) then
 		deque.last := tmp
-	end
-	else begin
+	else
 		deque.first^.prev := tmp;
-		deque.first := tmp
-	end
+
+	deque.first := tmp
 end;
 
 procedure LDPushBack(var deque: LongDeque; n: longint);
@@ -109,7 +107,7 @@ begin
 	LDPushFront(d, First);
 	LDPushFront(d, Second);
 
-	if ((d.first^.data <> First) or (d.first^.next = nil) or (d.first^.next^.data <> Second)) then begin
+	if ((d.first^.data <> Second) or (d.first^.next = nil) or (d.first^.next^.data <> First)) then begin
 		TestLDPushFrontTwo := false;
 		exit(false)
 	end;
