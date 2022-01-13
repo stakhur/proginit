@@ -62,6 +62,7 @@ end;
 
 function LDIsEmpty(var deque: LongDeque): boolean;
 begin
+	LDIsEmpty := (deque.first = nil)
 end;
 
 
@@ -171,10 +172,62 @@ begin
 	TestLDPopFront := 0
 end;
 
+function TestLDIsEmpty(): byte;
+var
+	d: LongDeque;
+	data: longint;
+begin
+	LDInit(d);
+
+	if (LDIsEmpty(d) <> true) then begin
+		TestLDIsEmpty := 1;
+		exit(1)
+	end;
+
+	data := 1;
+	LDPushFront(d, data);
+	if (LDIsEmpty(d) <> false) then begin
+		TestLDIsEmpty := 2;
+		exit(2)
+	end;
+
+	LDPopFront(d, data);
+	if (LDIsEmpty(d) <> true) then begin
+		TestLDIsEmpty := 3;
+		exit(3)
+	end;
+	
+	TestLDIsEmpty := 0
+end;
+
+function TestFull(): byte;
+var
+	d: LongDeque;
+	data: longint = 0;
+begin
+	writeln('Start TestFull');
+	TestFull := 0;
+
+	LDInit(d);
+
+	for data := 1 to 20 do begin
+		LDPushFront(d, data);
+		write(data, ' ')
+	end;
+	writeln;
+
+	while not (LDIsEmpty(d)) do begin
+		LDPopFront(d, data);
+		write(data, ' ')
+	end;
+
+	writeln
+end;
+
 
 function TestRun(): boolean;
 const
-	TestCount = 4;
+	TestCount = 6;
 var
 	passed: integer = 0;
 begin
@@ -182,13 +235,14 @@ begin
 	SetAndOutputResults(TestLDPushFrontOne(), 'TestLDPushFrontOne', passed);
 	SetAndOutputResults(TestLDPushFrontTwo(), 'TestLDPushFrontTwo', passed);
 	SetAndOutputResults(TestLDPopFront(), 'TestLDPopFront', passed);
+	SetAndOutputResults(TestLDIsEmpty(), 'TestLDIsEmpty', passed);
+	SetAndOutputResults(TestFull(), 'TestFull', passed);
 
 	if (passed = TestCount) then
 		writeln('All tests have been passed (', passed, '/', TestCount, ')')
 	else
 		writeln('Some tests have been failed. Passed (', passed, '/', TestCount, ')')
 end;
-
 
 begin
 	TestRun()
