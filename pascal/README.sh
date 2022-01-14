@@ -242,4 +242,24 @@
 		item = record
 			data: <type>;
 			next: itemptr;
-		end;	
+		end;
+		List = itemptr;
+		# or
+		List = record
+			first: itemptr;
+		end;
+
+# Deque
+	type
+		item2ptr = ^item2;
+		item2 = record
+			data: <type>;
+			prev, next: item2ptr;
+		end;
+		Deque = record
+			first, last: item2ptr;
+
+## Recursion
+# Declaration
+	procedure TraverseTree(var p: NodePtr); forward;
+	function CountValues(p: NodePtr; lim longint): integer; forward;
